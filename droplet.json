@@ -2,8 +2,8 @@
   "id": "issues",
   "name": "Issues",
   "version": "1.0.0",
-  "summary": "One line about Issues",
-  "description": "A longer description, in plain paragraphs.",
+  "summary": "Review and create GitHub issues in your notch.",
+  "description": "",
   "category": "Productivity",
   "kit": {
     "abi": 1,
@@ -12,20 +12,26 @@
   "minAppVersion": "15.3.0",
   "capabilities": [],
   "surfaces": [
-    "shelf-widget"
+    "shelf-widget",
+    "expanded-surface",
+    "settings-pane"
   ],
   "icon": "Issues.icon",
   "creator": {
-    "name": "Your name",
+    "name": "Bradley Austin",
     "kind": "community",
-    "url": "https://example.com",
+    "url": "https://github.com/bk24z",
     "avatar": "Creator.png",
-    "gitlab": "your-gitlab-username"
+    "gitlab": "bk24z"
   },
   "source": {
     "repository": "https://gitlab.com/droppyformac1/droplets/-/tree/main/droplets/issues",
     "license": "MIT"
   },
   "screenshots": [],
-  "keywords": []
+  "keywords": [
+    "github",
+    "issues",
+    "productivity"
+  ]
 }

@@ -2,7 +2,7 @@
   "id": "issues",
   "name": "Issues",
   "version": "1.0.0",
-  "summary": "Review and create GitHub issues in your notch.",
+  "summary": "Review and create GitHub issues from your notch",
   "description": "",
   "category": "Productivity",
   "kit": {

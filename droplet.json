@@ -12,9 +12,7 @@
   "minAppVersion": "15.3.0",
   "capabilities": [],
   "surfaces": [
-    "shelf-widget",
-    "expanded-surface",
-    "settings-pane"
+    "shelf-widget"
   ],
   "icon": "Issues.icon",
   "creator": {

@@ -1,0 +1,17 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run DroppyKit Harness",
+            "type": "process",
+            "command": "/Users/bradl1/droppykit/Scripts/droppykit",
+            "args": [
+                "run"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": []
+        }
+    ]
+}

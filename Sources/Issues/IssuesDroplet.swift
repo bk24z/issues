@@ -93,7 +93,7 @@ private struct IssuesWidget: View {
     var body: some View {
         VStack(alignment: .leading, spacing: DroppySpacing.sm) {
             HStack(spacing: DroppySpacing.xsm) {
-                Image(systemName: "drop.fill")
+                Image(systemName: "list.bullet.rectangle")
                     .font(.system(size: 12, weight: .medium))
                 Text("Issues")
                     .font(.system(size: 12, weight: .semibold))
@@ -102,22 +102,47 @@ private struct IssuesWidget: View {
                     // The widget's one control: the same Liquid Glass disc the
                     // File Tray puts on an item.
                     Button {
-                        droplet.refresh()
+                        // Handle the create issue action
                     } label: {
-                        Image(systemName: "arrow.clockwise")
+                        Image(systemName: "plus")
                     }
                     .buttonStyle(DroppyCircleButtonStyle(size: 20))
-                    .help("Refresh")
-                    .accessibilityLabel("Refresh")
+                    .help("Create issue")
+                    .accessibilityLabel("Create issue")
                 }
             }
             .foregroundStyle(AdaptiveColors.notchSurfaceSecondaryText)
 
-            Text(context.isCompact ? "Compact" : "Standalone")
-                .font(.system(size: 22, weight: .semibold, design: .rounded))
-                .foregroundStyle(AdaptiveColors.notchSurfacePrimaryText)
-
-            Spacer(minLength: 0)
+            ScrollView(.vertical) {
+                VStack(alignment: .leading, spacing: DroppySpacing.sm) {
+                    HStack(alignment: .center, spacing: DroppySpacing.xsm) {
+                        Text("10")
+                            .font(.system(size: 22, weight: .semibold, design: .rounded))
+                            .foregroundStyle(AdaptiveColors.notchSurfacePrimaryText)
+                        Text("open issues for you")
+                            .font(.system(size: 12, weight: .medium))
+                            .foregroundStyle(AdaptiveColors.notchSurfaceSecondaryText)
+                    }
+                    ForEach(0..<10, id: \.self) { i in
+                        HStack(spacing: DroppySpacing.xsm) {
+                            Button {
+                                // Change the state of the issue (e.g., mark as resolved)
+                            } label: {
+                                Image(systemName: "smallcircle.fill.circle")
+                                    .font(.system(size: 12, weight: .medium))
+                                    .foregroundColor(Color(red: 0.247, green: 0.729, blue: 0.314))
+                            }
+                            .buttonStyle(.borderless)
+                            Text("Issue \(i + 1)")
+                                .font(.system(size: 12, weight: .medium))
+                            Spacer(minLength: 0)
+                            Text("\(Int.random(in: 1 ... 100))")
+                                .font(.system(size: 12, weight: .semibold))
+                        }
+                    }
+                }
+            }
+            .scrollIndicators(.never)
         }
         .padding(context.contentInsets)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)

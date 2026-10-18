@@ -1,0 +1,31 @@
+{
+  "id": "issues",
+  "name": "Issues",
+  "version": "1.0.0",
+  "summary": "One line about Issues",
+  "description": "A longer description, in plain paragraphs.",
+  "category": "Productivity",
+  "kit": {
+    "abi": 1,
+    "minAPI": "1.6.0"
+  },
+  "minAppVersion": "15.3.0",
+  "capabilities": [],
+  "surfaces": [
+    "shelf-widget"
+  ],
+  "icon": "Issues.icon",
+  "creator": {
+    "name": "Your name",
+    "kind": "community",
+    "url": "https://example.com",
+    "avatar": "Creator.png",
+    "gitlab": "your-gitlab-username"
+  },
+  "source": {
+    "repository": "https://gitlab.com/droppyformac1/droplets/-/tree/main/droplets/issues",
+    "license": "MIT"
+  },
+  "screenshots": [],
+  "keywords": []
+}

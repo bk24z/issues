@@ -40,6 +40,11 @@ public final class IssuesDroplet: NSObject, ObservableObject, Droplet {
     public func refresh() {
         host?.log.info("Issues refreshed")
     }
+
+    /// Opens the solo widget layout from the compact shelf widget.
+    public func showAllIssues() {
+        host?.shelf.open(revealing: "issues")
+    }
 }
 
 // MARK: - Shelf widget

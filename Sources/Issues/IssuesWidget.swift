@@ -45,8 +45,16 @@ struct IssuesWidget: View {
             Text("Issues")
                 .font(.system(size: 12, weight: .semibold))
             Spacer(minLength: 0)
-            // The widget's one control: the same Liquid Glass disc the
-            // File Tray puts on an item.
+            if context.isCompact {
+                Button {
+                    droplet.showAllIssues()
+                } label: {
+                    Image(systemName: "list.bullet.rectangle")
+                }
+                .buttonStyle(DroppyCircleButtonStyle(size: 20))
+                .help("View all issues")
+                .accessibilityLabel("View all issues")
+            }
             Button {
                 // Create a new issue
             } label: {

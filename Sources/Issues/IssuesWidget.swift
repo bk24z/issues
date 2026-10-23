@@ -94,7 +94,7 @@ private struct IssueRow: View {
     var body: some View {
         HStack(spacing: DroppySpacing.xsm) {
             VStack(alignment: .leading, spacing: 0) {
-                HStack(spacing: DroppySpacing.xsm) {
+                HStack(alignment: .center, spacing: DroppySpacing.xsm) {
                     Button {
                         // Change the state of the issue (e.g., mark as resolved)
                     } label: {
@@ -115,30 +115,34 @@ private struct IssueRow: View {
                         .font(.system(size: 12, weight: .medium))
                         .foregroundStyle(AdaptiveColors.notchSurfaceTertiaryText)
                 }
-                HStack(spacing: DroppySpacing.xsm) {
-                    Text("bk24z opened \(i + 1)d ago")
-                    Label("a11y", systemImage: "tag")
-                    Label("v1.0.0", systemImage: "signpost.right")
+                if !isCompact {
+                    HStack(spacing: DroppySpacing.xsm) {
+                        Text("bk24z opened \(i + 1)d ago")
+                        Label("a11y", systemImage: "tag")
+                        Label("v1.0.0", systemImage: "signpost.right")
+                    }
+                    .font(.system(size: 12, weight: .medium))
+                    .foregroundStyle(AdaptiveColors.notchSurfaceSecondaryText)
                 }
-                .font(.system(size: 12, weight: .medium))
-                .foregroundStyle(AdaptiveColors.notchSurfaceSecondaryText)
             }
             Spacer(minLength: 0)
             Group {
-                Button {
-                    // Handle the edit action
-                } label: {
-                    Image(systemName: "square.and.pencil")
+                if !isCompact {
+                    Button {
+                        // Handle the edit action
+                    } label: {
+                        Image(systemName: "square.and.pencil")
+                    }
+                    .help("Edit this issue")
+                    .accessibilityLabel("Edit this issue")
+                    Button {
+                        // Open on GitHub or the relevant platform for the issue
+                    } label: {
+                        Image(systemName: "arrow.up.forward.app")
+                    }
+                    .help("Open on GitHub")
+                    .accessibilityLabel("Open on GitHub")
                 }
-                .help("Edit this issue")
-                .accessibilityLabel("Edit this issue")
-                Button {
-                    // Open on GitHub or the relevant platform for the issue
-                } label: {
-                    Image(systemName: "arrow.up.forward.app")
-                }
-                .help("Open on GitHub")
-                .accessibilityLabel("Open on GitHub")
                 Button {
                     // See more details about the issue, e.g., open it in a new window or navigate to its page
                 } label: {

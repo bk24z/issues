@@ -93,7 +93,7 @@ private struct IssuesWidget: View {
     var body: some View {
         VStack(alignment: .leading, spacing: DroppySpacing.sm) {
             HStack(spacing: DroppySpacing.xsm) {
-                Image(systemName: "list.bullet.rectangle")
+                Image(systemName: "smallcircle.fill.circle")
                     .font(.system(size: 12, weight: .medium))
                 Text("Issues")
                     .font(.system(size: 12, weight: .semibold))
@@ -102,42 +102,85 @@ private struct IssuesWidget: View {
                     // The widget's one control: the same Liquid Glass disc the
                     // File Tray puts on an item.
                     Button {
-                        // Handle the create issue action
+                        // Handle the new issue action
                     } label: {
                         Image(systemName: "plus")
                     }
                     .buttonStyle(DroppyCircleButtonStyle(size: 20))
-                    .help("Create issue")
-                    .accessibilityLabel("Create issue")
+                    .help("New issue")
+                    .accessibilityLabel("New issue")
                 }
             }
             .foregroundStyle(AdaptiveColors.notchSurfaceSecondaryText)
 
             ScrollView(.vertical) {
                 VStack(alignment: .leading, spacing: DroppySpacing.sm) {
-                    HStack(alignment: .center, spacing: DroppySpacing.xsm) {
-                        Text("10")
-                            .font(.system(size: 22, weight: .semibold, design: .rounded))
-                            .foregroundStyle(AdaptiveColors.notchSurfacePrimaryText)
-                        Text("open issues for you")
-                            .font(.system(size: 12, weight: .medium))
-                            .foregroundStyle(AdaptiveColors.notchSurfaceSecondaryText)
-                    }
+                    // HStack(alignment: .center, spacing: DroppySpacing.xsm) {
+                    //     Text("10")
+                    //         .font(.system(size: 22, weight: .semibold, design: .rounded))
+                    //         .foregroundStyle(AdaptiveColors.notchSurfacePrimaryText)
+                    //     Text("open issues for you")
+                    //         .font(.system(size: 12, weight: .medium))
+                    //         .foregroundStyle(AdaptiveColors.notchSurfaceSecondaryText)
+                    // }
                     ForEach(0..<10, id: \.self) { i in
                         HStack(spacing: DroppySpacing.xsm) {
-                            Button {
-                                // Change the state of the issue (e.g., mark as resolved)
-                            } label: {
-                                Image(systemName: "smallcircle.fill.circle")
-                                    .font(.system(size: 12, weight: .medium))
-                                    .foregroundColor(Color(red: 0.247, green: 0.729, blue: 0.314))
-                            }
-                            .buttonStyle(.borderless)
-                            Text("Issue \(i + 1)")
+                            VStack(alignment: .leading, spacing: 0) {
+                                HStack(spacing: DroppySpacing.xsm) {
+                                    Button {
+                                        // Change the state of the issue (e.g., mark as resolved)
+                                    } label: {
+                                        Image(systemName: "smallcircle.fill.circle")
+                                            .font(.system(size: 12, weight: .medium))
+                                            .foregroundColor(
+                                                Color(red: 0.247, green: 0.729, blue: 0.314))
+                                        // Image(systemName: "checkmark.circle")
+                                        //     .font(.system(size: 12, weight: .medium))
+                                        //     .foregroundColor(Color(red: 0.671, green: 0.490, blue: 0.973))
+                                    }
+                                    .buttonStyle(.borderless)
+                                    .help("Close this issue")
+                                    .accessibilityLabel("Close this issue")
+                                    Text("#\(i + 1)")
+                                        .font(.system(size: 12, weight: .medium))
+                                        .foregroundStyle(AdaptiveColors.notchSurfaceTertiaryText)
+                                    Text("Issue \(i + 1)")
+                                        .font(.system(size: 12, weight: .medium))
+                                }
+                                HStack(spacing: DroppySpacing.xsm) {
+                                    Text("bk24z opened \(i + 1)d ago")
+                                    Label("a11y", systemImage: "tag")
+                                    Label("v1.0.0", systemImage: "signpost.right")
+                                }
                                 .font(.system(size: 12, weight: .medium))
+                                .foregroundStyle(AdaptiveColors.notchSurfaceSecondaryText)
+                            }
                             Spacer(minLength: 0)
-                            Text("\(Int.random(in: 1 ... 100))")
-                                .font(.system(size: 12, weight: .semibold))
+                            Group {
+                                Button {
+                                    // Handle the edit action
+                                } label: {
+                                    Image(systemName: "square.and.pencil")
+                                }
+                                .help("Edit this issue")
+                                .accessibilityLabel("Edit this issue")
+                                Button {
+                                    // Open on GitHub or the relevant platform for the issue
+                                } label: {
+                                    Image(systemName: "arrow.up.forward.app")
+                                }
+                                .help("Open on GitHub")
+                                .accessibilityLabel("Open on GitHub")
+                                Button {
+                                    // See more details about the issue, e.g., open it in a new window or navigate to its page
+                                } label: {
+                                    Image(systemName: "chevron.right")
+                                }
+                                .help("View details")
+                                .accessibilityLabel("View details")
+                            }
+                            .font(.system(size: 12, weight: .medium))
+                            .buttonStyle(DroppyCircleButtonStyle(size: 20))
                         }
                     }
                 }

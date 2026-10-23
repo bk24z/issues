@@ -75,15 +75,28 @@ private struct SoloBody: View {
 
 private struct CompactBody: View {
     var body: some View {
-        VStack(alignment: .leading, spacing: DroppySpacing.sm) {
-            HStack(alignment: .center, spacing: DroppySpacing.xsm) {
-                Text("10")
-                    .font(.system(size: 22, weight: .semibold, design: .rounded))
-                    .foregroundStyle(AdaptiveColors.notchSurfacePrimaryText)
-                Text("open issues for you")
-                    .font(.system(size: 12, weight: .medium))
-                    .foregroundStyle(AdaptiveColors.notchSurfaceSecondaryText)
+        VStack(alignment: .leading, spacing: DroppySpacing.xsm) {
+            Spacer(minLength: 0)
+            VStack(alignment: .leading, spacing: 0) {
+                HStack(alignment: .center, spacing: 2) {
+                    Text("20")
+                        .font(.system(size: 17, weight: .semibold, design: .rounded))
+                        .foregroundStyle(AdaptiveColors.notchSurfacePrimaryText)
+                    Text("open")
+                        .font(.system(size: 12, weight: .medium))
+                        .foregroundStyle(AdaptiveColors.notchSurfaceSecondaryText)
+                }
+                HStack(alignment: .center, spacing: 3) {
+                    Text("10")
+                        .font(.system(size: 24, weight: .semibold, design: .rounded))
+                        .foregroundStyle(AdaptiveColors.notchSurfacePrimaryText)
+                    Text("assigned to you")
+                        .font(.system(size: 12, weight: .medium))
+                        .foregroundStyle(AdaptiveColors.notchSurfaceSecondaryText)
+                }
             }
+            IssueRow(i: 1, isCompact: true)
+            Spacer(minLength: 0)
         }
     }
 }

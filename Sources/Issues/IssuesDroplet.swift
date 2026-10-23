@@ -55,7 +55,7 @@ extension IssuesDroplet: ShelfWidgetProviding {
             ShelfWidgetDescriptor(
                 id: "issues",
                 title: "Issues",
-                systemImage: "drop.fill",
+                systemImage: "smallcircle.fill.circle",
                 layoutTraits: ShelfWidgetLayoutTraits(
                     // The CARD, in points at the Regular shelf size: the area
                     // your view draws in, which is what the harness shows.

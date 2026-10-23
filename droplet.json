@@ -10,7 +10,7 @@
     "minAPI": "1.6.0"
   },
   "minAppVersion": "15.3.0",
-  "capabilities": [],
+  "capabilities": ["shelf-read", "shelf-write"],
   "surfaces": [
     "shelf-widget"
   ],
